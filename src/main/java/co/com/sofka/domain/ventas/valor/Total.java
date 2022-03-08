@@ -1,4 +1,4 @@
-package co.com.sofka.domain.ventas.valor;
+package main.java.co.com.sofka.domain.ventas.valor;
 
 import co.com.sofka.domain.generic.ValueObject;
 

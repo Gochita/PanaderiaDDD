@@ -24,9 +24,4 @@ import java.time.LocalDateTime;
         }
 
 
-        public static void main(String[] args) {
-            Fecha fechita = new Fecha();
-            System.out.println(fechita.value());
-
-        }
 }
