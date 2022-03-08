@@ -1,4 +1,12 @@
 package co.com.sofka.domain.ventas;
 
-public class Cliente {
+import co.com.sofka.domain.generic.Entity;
+import co.com.sofka.domain.generic.Identity;
+
+public class Cliente extends Entity {
+
+
+    public Cliente(Identity clienteId) {
+        super(clienteId);
+    }
 }
