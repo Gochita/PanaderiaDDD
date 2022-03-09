@@ -22,16 +22,25 @@ public class Cliente extends Entity<ClienteId> {
      }
 
     public void crearCliente(ClienteId clienteId, Nombre nombre, Telefono telefono){
-        Cliente cliente = new Cliente(clienteId, nombre, telefono);
+        //TODO validacion de que cliente ya existe no permita agregarlo
+         Cliente cliente = new Cliente(clienteId, nombre, telefono);
         clientes.add(cliente);
     }
 
-    public void eliminarCliente(ClienteId identificacion){
-
+    public void eliminarCliente(ClienteId clienteId){
+        for (Cliente cliente:clientes) {
+            if(cliente.entityId.equals(clienteId)){
+                clientes.remove(cliente);
+            }
+            else{
+                System.out.println("Cliente no encontrado");
+            }
+        }
     }
 
-    public void actualizarCliente(){
-
+    public void actualizarCliente(ClienteId clienteId,Nombre nombre, Telefono telefono){
+        eliminarCliente(clienteId);
+        crearCliente(clienteId, nombre, telefono);
     }
 
     public Nombre nombre() {
