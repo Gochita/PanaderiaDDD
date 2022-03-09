@@ -22,8 +22,13 @@ public class Cliente extends Entity<ClienteId> {
      }
 
     public void crearCliente(ClienteId clienteId, Nombre nombre, Telefono telefono){
-        Cliente cliente = new Cliente(clienteId, nombre, telefono);
-        clientes.add(cliente);
+        for (Cliente cliente: clientes) {
+            if(cliente.entityId.equals(clienteId)){
+                System.out.println("Cliente ya existe");
+            }
+            Cliente clientito = new Cliente(clienteId, nombre, telefono);
+            clientes.add(clientito);
+        }
     }
 
     public void eliminarCliente(ClienteId identificacion){
