@@ -31,12 +31,20 @@ public class Cliente extends Entity<ClienteId> {
         }
     }
 
-    public void eliminarCliente(ClienteId identificacion){
-
+    public void eliminarCliente(ClienteId clienteId){
+        for (Cliente cliente:clientes) {
+            if(cliente.entityId.equals(clienteId)){
+                clientes.remove(cliente);
+            }
+            else{
+                System.out.println("Cliente no encontrado");
+            }
+        }
     }
 
-    public void actualizarCliente(){
-
+    public void actualizarCliente(ClienteId clienteId,Nombre nombre, Telefono telefono){
+        eliminarCliente(clienteId);
+        crearCliente(clienteId, nombre, telefono);
     }
 
     public Nombre nombre() {
