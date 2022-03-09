@@ -41,9 +41,8 @@ public class Inventario extends AggregateEvent<InventarioID> {
         appendChange(new SurtidorEliminado()).apply();
     }
 
-    public void eliminarProducto(ListaInventario listaInventario, ProductoID entityID){
-        listaInventario.eliminarProductoPorID(entityID);
-        appendChange(new ProductoEliminado(entityID)).apply();
+    public void eliminarProducto(Producto producto){
+        appendChange(new ProductoEliminado(producto)).apply();
     }
 
     public void modificarDescripcionProducto(ProductoID entityID , Descripcion descripcion){
@@ -55,8 +54,8 @@ public class Inventario extends AggregateEvent<InventarioID> {
         return listaInventario;
     }
 
-    public Producto Producto() {
-        return producto;
+    public Producto getProductoporID(ProductoID entityID) {
+        return listaInventario.getProductobyID(entityID);
     }
 
     public List<Surtidor> Surtidor() {

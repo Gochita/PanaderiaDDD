@@ -23,7 +23,15 @@ public class ListaInventario implements ValueObject<Object> {
 
     public void eliminarProductoPorID(ProductoID productoid){
         productos.stream().filter( producto1 -> producto1.identity().equals(productoid));
-        
+
+    }
+
+    public Set<Producto> getProductos() {
+        return productos;
+    }
+
+    public Producto getProductobyID(ProductoID productoid){
+         return (Producto) productos.stream().filter(producto1 -> producto1.identity().equals(productoid));
     }
 
     @Override
