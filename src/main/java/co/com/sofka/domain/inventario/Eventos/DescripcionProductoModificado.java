@@ -13,4 +13,8 @@ public class DescripcionProductoModificado extends DomainEvent {
         this.entityID = entityID;
         this.descripcion = descripcion;
     }
+
+    public Descripcion getDescripcion() {
+        return descripcion;
+    }
 }

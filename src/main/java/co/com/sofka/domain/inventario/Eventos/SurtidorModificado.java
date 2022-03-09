@@ -16,4 +16,12 @@ public class SurtidorModificado extends DomainEvent {
         this.nombre= nombre;
         this.telefono = telefono;
     }
+
+    public Telefono getTelefono() {
+        return telefono;
+    }
+
+    public Nombre getNombre() {
+        return nombre;
+    }
 }

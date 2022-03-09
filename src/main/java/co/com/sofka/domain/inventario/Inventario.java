@@ -19,7 +19,11 @@ public class Inventario extends AggregateEvent<InventarioID> {
         super(inventarioId);
         this.listaInventario = listaInventario;
 
+    }
 
+    private Inventario(InventarioID inventarioId){
+        super(inventarioId);
+        subscribe(new InventarioChange(this));
     }
 
     public void agregarSurtidor(SurtidorID entityId , Telefono telefono, Nombre nombre){
