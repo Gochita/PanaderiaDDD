@@ -1,7 +1,6 @@
 package co.com.sofka.domain.ventas;
 
 import co.com.sofka.domain.generic.Entity;
-import co.com.sofka.domain.generic.Identity;
 import co.com.sofka.domain.ventas.valor.ClienteId;
 import co.com.sofka.domain.ventas.valor.Nombre;
 import co.com.sofka.domain.ventas.valor.Telefono;
