@@ -11,23 +11,27 @@ public class Factura implements ValueObject<String> {
     private Total total;
     private Vendedor vendedor;
     private Carrito carrito;
+    private MetodoPago metodoPago;
 
-    public Factura(Fecha fecha, Cliente cliente, Total total, Vendedor vendedor, Carrito carrito) {
+    public Factura(Fecha fecha, Cliente cliente, Total total, Vendedor vendedor, Carrito carrito, MetodoPago metodoPago) {
         this.fecha = fecha;
         this.cliente = cliente;
         this.total = total;
         this.vendedor = vendedor;
         this.carrito = carrito;
+        this.metodoPago = metodoPago;
     }
+
 
     @Override
     public String toString() {
         return "Factura{" +
-                "fecha=" + fecha.value() +
-                ", cliente=" + cliente.nombre() +
-                ", vendedor=" + vendedor.value() +
-                ", carrito=" + carrito.listarProductos() +
-                ", total=" + total.value() +
+                "fecha=" + fecha +
+                ", cliente=" + cliente +
+                ", vendedor=" + vendedor +
+                ", carrito=" + carrito +
+                ", metodoPago=" + metodoPago +
+                ", total=" + total +
                 '}';
     }
 
