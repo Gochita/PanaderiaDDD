@@ -10,7 +10,6 @@ public class InventarioChange extends EventChange {
 
     public InventarioChange(Inventario inventario) {
 
-        apply((ProductoEliminado event) ->
-                );
+       // apply((ProductoEliminado event) ->                );
     }
 }
