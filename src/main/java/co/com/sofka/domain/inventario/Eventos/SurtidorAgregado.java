@@ -16,4 +16,5 @@ public class SurtidorAgregado extends DomainEvent {
     public Nombre getNombre() {
         return nombre;
     }
+
 }

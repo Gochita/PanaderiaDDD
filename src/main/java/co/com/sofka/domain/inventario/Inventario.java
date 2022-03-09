@@ -1,9 +1,8 @@
 package co.com.sofka.domain.inventario;
 
 import co.com.sofka.domain.generic.AggregateEvent;
-import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.generic.Identity;
-import co.com.sofka.domain.inventario.Eventos.SurtidorAgregado;
+import co.com.sofka.domain.inventario.Eventos.*;
+
 import co.com.sofka.domain.inventario.valor.*;
 
 import java.util.List;
@@ -18,6 +17,7 @@ public class Inventario extends AggregateEvent<InventarioID> {
 
     public Inventario(InventarioID inventarioId , ListaInventario listaInventario ) {
         super(inventarioId);
+        this.listaInventario = listaInventario;
 
 
     }
@@ -38,11 +38,13 @@ public class Inventario extends AggregateEvent<InventarioID> {
     }
 
     public void eliminarProducto(ListaInventario listaInventario, ProductoID entityID){
+        listaInventario.eliminarProductoPorID(entityID);
         appendChange(new ProductoEliminado(entityID)).apply();
     }
 
     public void modificarDescripcionProducto(ProductoID entityID , Descripcion descripcion){
-        appendChange(new descripcionProductoModificado(entityID,descripcion)).apply();
+        
+        appendChange(new DescripcionProductoModificado(entityID,descripcion)).apply();
     }
 
     public ListaInventario ListaInventario() {
@@ -56,7 +58,5 @@ public class Inventario extends AggregateEvent<InventarioID> {
     public List<Surtidor> Surtidor() {
         return surtidor;
     }
-    public Producto getProductoId(ProductoID productoID){
-        listaInventario.value();
-    }
+    
 }
