@@ -4,8 +4,8 @@ import co.com.sofka.domain.generic.ValueObject;
 
 public class Nombre implements ValueObject<String> {
 
-    private String nombre;
-    private String apellido;
+    private final String nombre;
+    private final String apellido;
 
 
     public Nombre(String primerNombre, String segundoNombre) {
