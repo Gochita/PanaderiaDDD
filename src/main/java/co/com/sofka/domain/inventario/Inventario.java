@@ -29,8 +29,8 @@ public class Inventario extends AggregateEvent<InventarioID> {
         appendChange(new SurtidorAgregado(entityId,telefono,nombre)).apply();
     }
 
-    public void modificarSurtidor(){
-        appendChange(new SurtidorModificado()).apply();
+    public void modificarSurtidor(SurtidorID entityId , Telefono telefono, Nombre nombre){
+        appendChange(new SurtidorModificado(entityId,telefono,nombre)).apply();
     }
 
     public void eliminarSurtidor(){
@@ -43,7 +43,7 @@ public class Inventario extends AggregateEvent<InventarioID> {
     }
 
     public void modificarDescripcionProducto(ProductoID entityID , Descripcion descripcion){
-        
+
         appendChange(new DescripcionProductoModificado(entityID,descripcion)).apply();
     }
 
@@ -58,5 +58,5 @@ public class Inventario extends AggregateEvent<InventarioID> {
     public List<Surtidor> Surtidor() {
         return surtidor;
     }
-    
+
 }

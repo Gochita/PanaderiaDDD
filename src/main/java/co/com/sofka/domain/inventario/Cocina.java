@@ -15,9 +15,9 @@ public class Cocina {
     Precio precioUno = new Precio(500.00);
     Descripcion descripcion = new Descripcion("");
 
-    Producto panQueso = new Producto( productoID, precioUno, descripcion);
+    /*Producto panQueso = new Producto( productoID, precioUno, descripcion);
     Producto panMantequilla = new Producto( productoID, precioUno, descripcion);
     Producto panArequipe = new Producto( productoID, precioUno, descripcion);
     Producto panMariquiteño = new Producto( productoID, precioUno, descripcion);
-    Producto cocaCola = new Producto( productoID, precioUno, descripcion);
+    Producto cocaCola = new Producto( productoID, precioUno, descripcion);*/
 }
