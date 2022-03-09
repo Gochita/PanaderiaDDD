@@ -8,16 +8,17 @@ import co.com.sofka.domain.ventas.Carrito;
 
 public class Total implements ValueObject<Double>  {
 
-    Identity carritoId;
-    Carrito carrito = new Carrito(carritoId);
     Double contador = 0.0;
 
-
-    @Override
-    public Double value() {
+    public Double sumarProductos(Carrito carrito){
         for (Producto producto: carrito.listarProductos()) {
             contador = contador + producto.Precio().getPrice();
         }
+        return contador;
+    }
+
+    @Override
+    public Double value() {
         return contador;
     }
 
