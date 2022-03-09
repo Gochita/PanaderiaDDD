@@ -10,6 +10,9 @@ public class Precio implements ValueObject<Double> {
         this.price = price;
     }
 
+    public Double getPrice() {
+        return price;
+    }
 
     @Override
     public Double value() {
