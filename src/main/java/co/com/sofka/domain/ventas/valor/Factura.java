@@ -6,32 +6,31 @@ import co.com.sofka.domain.ventas.Cliente;
 
 public class Factura implements ValueObject<String> {
 
-    private Fecha fecha = new Fecha();
-    private Cliente cliente;
-    private Total total;
-    private Vendedor vendedor;
-    private Carrito carrito;
-    private MetodoPago metodoPago;
+    private final Fecha fecha;
+    private final ClienteId clienteId;
+    private final Total total;
+    private final VendedorId vendedorId;
+    private final CarritoId carritoId;
+    private final MetodoPago metodoPago;
 
-    public Factura(Fecha fecha, Cliente cliente, Total total, Vendedor vendedor, Carrito carrito, MetodoPago metodoPago) {
+    public Factura(Fecha fecha, ClienteId clienteId, Total total, VendedorId vendedorId, CarritoId carritoId, MetodoPago metodoPago) {
         this.fecha = fecha;
-        this.cliente = cliente;
+        this.clienteId = clienteId;
         this.total = total;
-        this.vendedor = vendedor;
-        this.carrito = carrito;
+        this.vendedorId = vendedorId;
+        this.carritoId = carritoId;
         this.metodoPago = metodoPago;
     }
-
 
     @Override
     public String toString() {
         return "Factura{" +
                 "fecha=" + fecha +
-                ", cliente=" + cliente +
-                ", vendedor=" + vendedor +
-                ", carrito=" + carrito +
-                ", metodoPago=" + metodoPago +
+                ", clienteId=" + clienteId +
                 ", total=" + total +
+                ", vendedorId=" + vendedorId +
+                ", carritoId=" + carritoId +
+                ", metodoPago=" + metodoPago +
                 '}';
     }
 

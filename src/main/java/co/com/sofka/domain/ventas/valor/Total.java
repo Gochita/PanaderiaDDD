@@ -11,8 +11,8 @@ public class Total implements ValueObject<Double>  {
     Double contador = 0.0;
 
     public Double sumarProductos(Carrito carrito){
-        for (Producto producto: carrito.listarProductos()) {
-            contador = contador + producto.Precio().getPrice();
+        for (ProductoId productoId: carrito.listarProductos()) {
+            //contador = contador + productoId.value().getPrice();
         }
         return contador;
     }
