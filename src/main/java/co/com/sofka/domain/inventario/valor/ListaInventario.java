@@ -9,31 +9,6 @@ import java.util.Set;
 
 public class ListaInventario implements ValueObject<Object> {
 
-
-    private Set<Producto> productos;
-
-    public ListaInventario(Set<Producto> productos) {
-        this.productos = productos;
-    }
-
-    public Set<Producto> agregarProductos(Producto producto){
-        productos.add(producto);
-        return productos ;
-    }
-
-    public void eliminarProductoPorID(ProductoID productoid){
-        productos.stream().filter( producto1 -> producto1.identity().equals(productoid));
-
-    }
-
-    public Set<Producto> getProductos() {
-        return productos;
-    }
-
-    public Producto getProductobyID(ProductoID productoid){
-         return (Producto) productos.stream().filter(producto1 -> producto1.identity().equals(productoid));
-    }
-
     @Override
     public Object value() {
         return null;
