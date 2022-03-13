@@ -6,12 +6,12 @@ import co.com.sofka.domain.inventario.valor.SurtidorID;
 import co.com.sofka.domain.inventario.valor.Telefono;
 
 public class SurtidorModificado extends DomainEvent {
-    private SurtidorID entityId;
-    private  Telefono telefono;
-    private  Nombre nombre;
+    private final SurtidorID entityId;
+    private final  Telefono telefono;
+    private final  Nombre nombre;
 
     public SurtidorModificado(SurtidorID entityId , Telefono telefono, Nombre nombre) {
-        super("Surtidor ha sido Modificado");
+        super("Sofka.Inventario.SurtidorModificado");
         this.entityId = entityId;
         this.nombre= nombre;
         this.telefono = telefono;
@@ -23,5 +23,9 @@ public class SurtidorModificado extends DomainEvent {
 
     public Nombre getNombre() {
         return nombre;
+    }
+
+    public SurtidorID getEntityId() {
+        return entityId;
     }
 }

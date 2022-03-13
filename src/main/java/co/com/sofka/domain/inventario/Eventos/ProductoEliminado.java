@@ -8,7 +8,7 @@ public class ProductoEliminado extends DomainEvent {
     private ProductoID producto;
 
     public ProductoEliminado(ProductoID producto) {
-        super("ProductoEliminado");
+        super("Sofka.Inventario.ProductoEliminado");
         this.producto = producto;
     }
 
