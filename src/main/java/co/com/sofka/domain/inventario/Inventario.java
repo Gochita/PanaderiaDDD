@@ -1,6 +1,7 @@
 package co.com.sofka.domain.inventario;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.inventario.Eventos.*;
 
 import co.com.sofka.domain.inventario.valor.*;
@@ -10,27 +11,28 @@ import java.util.Objects;
 
 public class Inventario extends AggregateEvent<InventarioID> {
 
-    protected ListaInventario listaInventario;
-    protected Producto producto;
+    protected List<Producto> productos;
     protected List<Surtidor> surtidor;
 
-
-    public Inventario(InventarioID inventarioId , ListaInventario listaInventario ) {
-        super(inventarioId);
-        this.listaInventario = listaInventario;
-
-    }
 
     private Inventario(InventarioID inventarioId){
         super(inventarioId);
         subscribe(new InventarioChange(this));
+        appendChange(new InventarioCreado(inventarioId));
+    }
+
+    public static Inventario from(InventarioID inventarioId , List<DomainEvent> events){
+        Inventario inventario = new Inventario(inventarioId);
+        events.forEach(inventario::applyEvent);
+        return inventario;
+
     }
 
     public void agregarSurtidor(SurtidorID entityId , Telefono telefono, Nombre nombre){
         Objects.requireNonNull(entityId);
         Objects.requireNonNull(telefono);
         Objects.requireNonNull(nombre);
-        appendChange(new SurtidorAgregado(entityId,telefono,nombre)).apply();
+        appendChange(new SurtidorAgregado(nombre,telefono,entityId)).apply();
     }
 
     public void modificarSurtidor(SurtidorID entityId , Telefono telefono, Nombre nombre){
@@ -41,21 +43,13 @@ public class Inventario extends AggregateEvent<InventarioID> {
         appendChange(new SurtidorEliminado()).apply();
     }
 
-    public void eliminarProducto(Producto producto){
-        appendChange(new ProductoEliminado(producto)).apply();
+    public void eliminarProducto(ProductoID productoID){
+        appendChange(new ProductoEliminado(productoID)).apply();
     }
 
     public void modificarDescripcionProducto(ProductoID entityID , Descripcion descripcion){
 
         appendChange(new DescripcionProductoModificado(entityID,descripcion)).apply();
-    }
-
-    public ListaInventario ListaInventario() {
-        return listaInventario;
-    }
-
-    public Producto getProductoporID(ProductoID entityID) {
-        return listaInventario.getProductobyID(entityID);
     }
 
     public List<Surtidor> Surtidor() {
