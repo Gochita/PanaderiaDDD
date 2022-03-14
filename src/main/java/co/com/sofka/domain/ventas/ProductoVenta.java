@@ -10,7 +10,7 @@ import co.com.sofka.domain.ventas.valor.ProductoId;
 
 import java.util.Objects;
 
-public class Producto extends Entity<ProductoId> {
+public class ProductoVenta extends Entity<ProductoId> {
 
     private Precio precio;
     private Descripcion descripcion;
@@ -18,7 +18,7 @@ public class Producto extends Entity<ProductoId> {
 
 
 
-    public Producto(ProductoId entityId , Precio precio, Descripcion descripcion , Nombre nombre) {
+    public ProductoVenta(ProductoId entityId , Precio precio, Descripcion descripcion , Nombre nombre) {
         super(entityId);
         this.precio = precio;
         this.descripcion = descripcion;
