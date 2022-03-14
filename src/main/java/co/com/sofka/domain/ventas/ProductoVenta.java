@@ -16,8 +16,6 @@ public class ProductoVenta extends Entity<ProductoId> {
     private Descripcion descripcion;
     private Nombre nombre;
 
-
-
     public ProductoVenta(ProductoId entityId , Precio precio, Descripcion descripcion , Nombre nombre) {
         super(entityId);
         this.precio = precio;
