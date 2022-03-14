@@ -16,7 +16,7 @@ public class Inventario extends AggregateEvent<InventarioID> {
     protected List<Surtidor> surtidor;
 
 
-    private Inventario(InventarioID inventarioId){
+    public Inventario(InventarioID inventarioId){
         super(inventarioId);
         subscribe(new InventarioChange(this));
         appendChange(new InventarioCreado(inventarioId));
