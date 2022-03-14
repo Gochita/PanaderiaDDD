@@ -3,11 +3,12 @@ package co.com.sofka.domain.inventario.Eventos;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.inventario.valor.Nombre;
 import co.com.sofka.domain.inventario.valor.SurtidorID;
-import co.com.sofka.domain.inventario.valor.Telefono;
+
+import co.com.sofka.domain.ventas.valor.Telefono;
 
 public class SurtidorModificado extends DomainEvent {
     private final SurtidorID entityId;
-    private final  Telefono telefono;
+    private final Telefono telefono;
     private final  Nombre nombre;
 
     public SurtidorModificado(SurtidorID entityId , Telefono telefono, Nombre nombre) {

@@ -14,7 +14,7 @@ public class Producto extends Entity<ProductoID> {
 
 
 
-    public Producto(ProductoID entityId , Precio precio, Descripcion descripcion , Nombre nombre) {
+    public Producto(ProductoID entityId,  Nombre nombre, Descripcion descripcion ,Precio precio) {
         super(entityId);
         this.precio = precio;
         this.descripcion = descripcion;
@@ -35,5 +35,10 @@ public class Producto extends Entity<ProductoID> {
 
     public void modificarDescripcion(Descripcion nuevaDescripcion){
         this.descripcion = Objects.requireNonNull(nuevaDescripcion);
+    }
+
+    public void modificarNombre(Nombre nombre){
+        this.nombre = Objects.requireNonNull(nombre);
+
     }
 }

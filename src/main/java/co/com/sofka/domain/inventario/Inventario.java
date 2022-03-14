@@ -5,6 +5,7 @@ import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.inventario.Eventos.*;
 
 import co.com.sofka.domain.inventario.valor.*;
+import co.com.sofka.domain.ventas.valor.Telefono;
 
 import java.util.List;
 import java.util.Objects;
@@ -32,14 +33,15 @@ public class Inventario extends AggregateEvent<InventarioID> {
         Objects.requireNonNull(entityId);
         Objects.requireNonNull(telefono);
         Objects.requireNonNull(nombre);
-        appendChange(new SurtidorAgregado(nombre,telefono,entityId)).apply();
+        appendChange(new SurtidorAgregado(entityId,nombre,telefono)).apply();
     }
 
-    public void agregarProducto(ProductoID productoID, Nombre nombre, Telefono telefono){
+    public void agregarProducto(ProductoID productoID, Nombre nombre, Descripcion descripcion, Precio precio){
         Objects.requireNonNull(productoID);
-        Objects.requireNonNull(telefono);
+        Objects.requireNonNull(descripcion);
         Objects.requireNonNull(nombre);
-        appendChange(new ProductoAgregado(productoID,nombre,telefono) ).apply();
+        Objects.requireNonNull(precio);
+        appendChange(new ProductoAgregado(productoID,nombre,descripcion, precio ) ).apply();
     }
 
     public void modificarSurtidor(SurtidorID entityId , Telefono telefono, Nombre nombre){
