@@ -2,8 +2,9 @@ package co.com.sofka.domain.ventas;
 
 import co.com.sofka.domain.generic.Entity;
 import co.com.sofka.domain.generic.Identity;
-import co.com.sofka.domain.inventario.Producto;
-import co.com.sofka.domain.inventario.valor.ProductoID;
+import co.com.sofka.domain.ventas.valor.Descripcion;
+import co.com.sofka.domain.ventas.valor.Nombre;
+import co.com.sofka.domain.ventas.valor.Precio;
 import co.com.sofka.domain.ventas.valor.ProductoId;
 
 import java.util.ArrayList;
@@ -11,20 +12,26 @@ import java.util.List;
 
 public class Carrito extends Entity {
 
-    private List<Producto> productosCarrito = new ArrayList<>();
+    private List<ProductoVenta> productosCarrito = new ArrayList<>();
     
     public Carrito(Identity carritoId) {
         super(carritoId);
     }
 
-    public void agregarProducto(Producto producto){
-        productosCarrito.add(producto);
+    public void agregarProducto(
+                                ProductoId productoId ,
+                                Precio precio,
+                                Descripcion descripcion ,
+                                Nombre nombre){
+
+        ProductoVenta productoVenta = new ProductoVenta(productoId, precio, descripcion ,nombre);
+        productosCarrito.add(productoVenta);
     }
 
-    public void eliminarProducto(ProductoID productoID){
-        for (Producto producto:productosCarrito) {
-            if(producto.equals(producto)){
-                productosCarrito.remove(producto);
+    public void eliminarProducto(ProductoId productoID){
+        for (ProductoVenta productoVenta :productosCarrito) {
+            if(productoVenta.equals(productoVenta)){
+                productosCarrito.remove(productoVenta);
             }
             else{
                 System.out.println("Producto no encontrado");
@@ -32,7 +39,7 @@ public class Carrito extends Entity {
         }
     }
 
-    public List<Producto> listarProductos(){
+    public List<ProductoVenta> listarProductos(){
         return productosCarrito;
     }
 
