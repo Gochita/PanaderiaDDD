@@ -2,7 +2,7 @@ package co.com.sofka.domain.inventario.valor;
 
 import co.com.sofka.domain.generic.ValueObject;
 
-public class Descripcion implements ValueObject<String> {
+public class Telefono implements ValueObject<String> {
 
     private final String telefono;
 
