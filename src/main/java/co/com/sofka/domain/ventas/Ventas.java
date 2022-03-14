@@ -6,7 +6,6 @@ public class Ventas extends AggregateEvent<VentasId>{
 
     protected Cliente cliente;
     protected Vendedor vendedor;
-    protected ListaInventario listaInventario;
     protected MetodoPago metodoPago;
     protected Total total;
     protected Fecha fecha;
