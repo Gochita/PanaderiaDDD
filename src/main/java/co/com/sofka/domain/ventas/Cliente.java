@@ -20,11 +20,11 @@ public class Cliente extends Entity<ClienteId> {
         this.telefono = telefono;
     }
 
-    public Nombre nombre() {
+    public Nombre Nombre() {
         return nombre;
     }
 
-    public Telefono telefono() {
+    public Telefono Telefono() {
         return telefono;
     }
 }
