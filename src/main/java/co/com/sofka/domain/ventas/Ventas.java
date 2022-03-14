@@ -2,6 +2,7 @@ package co.com.sofka.domain.ventas;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.ventas.events.CarritoCreado;
+import co.com.sofka.domain.ventas.events.ProuctoAgregadoACarrito;
 import co.com.sofka.domain.ventas.events.VentaCreada;
 import co.com.sofka.domain.ventas.valor.*;
 
@@ -40,6 +41,13 @@ public class Ventas extends AggregateEvent<VentasId>{
 
     public void crearCarrito(CarritoId carritoId){
         appendChange(new CarritoCreado(carritoId)).apply();
+    }
+
+    public void agregarProductoACarrito(ProductoId productoId,
+            Precio precio,
+             Descripcion descripcion,
+             Nombre nombre){
+        appendChange(new ProuctoAgregadoACarrito(productoId, precio, descripcion, nombre)).apply();
     }
 
     public void crearCliente(ClienteId clienteId, Nombre nombre, Telefono telefono){
