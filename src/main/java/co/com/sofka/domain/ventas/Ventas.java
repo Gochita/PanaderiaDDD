@@ -1,6 +1,7 @@
 package co.com.sofka.domain.ventas;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.domain.ventas.events.CarritoCreado;
 import co.com.sofka.domain.ventas.events.VentaCreada;
 import co.com.sofka.domain.ventas.valor.*;
 
@@ -10,7 +11,7 @@ import java.util.List;
 public class Ventas extends AggregateEvent<VentasId>{
 
     protected Cliente cliente;
-    protected Vendedor vendedor;
+    protected VendedorId vendedorId;
     protected MetodoPago metodoPago;
     protected Total total;
     protected Fecha fecha;
@@ -37,13 +38,9 @@ public class Ventas extends AggregateEvent<VentasId>{
         return venta;
     }
 
-    public void cancelarVenta(){
-
+    public void crearCarrito(CarritoId carritoId){
+        appendChange(new CarritoCreado(carritoId)).apply();
     }
-
-
-
-
 
     public void crearCliente(ClienteId clienteId, Nombre nombre, Telefono telefono){
         for (Cliente cliente: clientes) {
@@ -77,4 +74,27 @@ public class Ventas extends AggregateEvent<VentasId>{
         }
     }
 
+    public VendedorId getVendedorId() {
+        return vendedorId;
+    }
+
+    public MetodoPago getMetodoPago() {
+        return metodoPago;
+    }
+
+    public Total getTotal() {
+        return total;
+    }
+
+    public Fecha getFecha() {
+        return fecha;
+    }
+
+    public Factura getFactura() {
+        return factura;
+    }
+
+    public List<Cliente> getClientes() {
+        return clientes;
+    }
 }
