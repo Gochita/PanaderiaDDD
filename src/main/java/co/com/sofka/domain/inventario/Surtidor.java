@@ -5,6 +5,7 @@ import co.com.sofka.domain.inventario.valor.Nombre;
 import co.com.sofka.domain.inventario.valor.SurtidorID;
 import co.com.sofka.domain.inventario.valor.Telefono;
 
+
 import java.util.Objects;
 
 public class Surtidor extends Entity<SurtidorID> {

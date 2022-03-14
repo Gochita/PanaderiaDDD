@@ -5,7 +5,7 @@ import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.inventario.Eventos.*;
 
 import co.com.sofka.domain.inventario.valor.*;
-import co.com.sofka.domain.ventas.valor.Telefono;
+import co.com.sofka.domain.inventario.valor.Telefono;
 
 import java.util.List;
 import java.util.Objects;
@@ -62,6 +62,14 @@ public class Inventario extends AggregateEvent<InventarioID> {
     public void modificarDescripcionProducto(ProductoID entityID , Descripcion descripcion){
 
         appendChange(new DescripcionProductoModificado(entityID,descripcion)).apply();
+    }
+
+
+    protected Producto getProductoPorID(ProductoID productoId){
+        return productos.stream()
+                .filter( item -> item.identity().equals(productoId)).findFirst()
+                .orElseThrow(()-> new RuntimeException("No se encuentra el producto"));
+
     }
 
     public List<Producto> Productos() {
