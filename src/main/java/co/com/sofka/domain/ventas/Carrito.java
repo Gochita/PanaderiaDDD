@@ -11,20 +11,20 @@ import java.util.List;
 
 public class Carrito extends Entity {
 
-    private List<ProductoId> productosCarrito = new ArrayList<>();
+    private List<Producto> productosCarrito = new ArrayList<>();
     
     public Carrito(Identity carritoId) {
         super(carritoId);
     }
 
-    public void agregarProducto(ProductoId productoId){
-        productosCarrito.add(productoId);
+    public void agregarProducto(Producto producto){
+        productosCarrito.add(producto);
     }
 
     public void eliminarProducto(ProductoID productoID){
-        for (ProductoId productoId:productosCarrito) {
-            if(productoId.value().equals(productoID)){
-                productosCarrito.remove(productoId);
+        for (Producto producto:productosCarrito) {
+            if(producto.equals(producto)){
+                productosCarrito.remove(producto);
             }
             else{
                 System.out.println("Producto no encontrado");
@@ -32,7 +32,7 @@ public class Carrito extends Entity {
         }
     }
 
-    public List<ProductoId> listarProductos(){
+    public List<Producto> listarProductos(){
         return productosCarrito;
     }
 

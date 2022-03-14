@@ -22,10 +22,4 @@ public class MetodoPago implements ValueObject<MetodoPago.Pago> {
         OTRO
     }
 
-    public static void main(String[] args) {
-
-        MetodoPago pagar = new MetodoPago(Pago.TARJETA);
-        System.out.println(pagar);
     }
-
-}
