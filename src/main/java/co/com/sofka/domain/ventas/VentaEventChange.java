@@ -15,5 +15,7 @@ public class VentaEventChange extends EventChange {
         apply((CarritoCreado event) -> {
             ventas.carrito = new Carrito(event.getCarritoId());
         });
+
+
     }
 }
